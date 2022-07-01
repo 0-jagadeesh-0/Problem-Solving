@@ -13,6 +13,6 @@ void postOrder(TreeNode* root)
 {
   if(root==NULL) return;
   postOrder(root->left);
-  cout<<root->val<<" ";
   postOrder(root->right);
+  cout<<root->val<<" ";
 }
