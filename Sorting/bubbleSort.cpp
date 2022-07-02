@@ -35,5 +35,5 @@ int main()
   return 0;
 }
 
-// Time Complexity is O(N).
+// Time Complexity is O(N*N).
 
