@@ -37,3 +37,5 @@ int main()
 
 // Time Complexity is O(N*N).
 
+// Space Complexity is O(1).
+
