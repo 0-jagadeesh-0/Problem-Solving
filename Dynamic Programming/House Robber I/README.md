@@ -1,1 +1,1 @@
-[image](../../assets/house-robber-1-question.png)
+![image](../../assets/house-robber-1-question.png)
