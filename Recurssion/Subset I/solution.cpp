@@ -29,13 +29,13 @@ int main()
     findSubsequences(0, n, nums, v, ans);
     for (int i = 0; i < ans.size() - 1; i++)
     {
-        cout << "[";
+        cout << "[ ";
         int k = ans[i].size();
-        for (int j = 0; j < k - 1; j++)
+        for (int j = 0; j < k; j++)
         {
             cout << ans[i][j] << " ";
         }
-        cout << ans[i][k - 1] << "]" << endl;
+        cout << "]" << endl;
     }
     cout << "[]" << endl;
 
