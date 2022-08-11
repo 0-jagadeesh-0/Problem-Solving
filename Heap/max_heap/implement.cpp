@@ -1,8 +1,8 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-class min_heap
+class max_heap
 {
 private:
     int *heap;
@@ -10,10 +10,10 @@ private:
     int heap_capacity;
 
 public:
-    min_heap(int capacity)
+    max_heap(int capacity)
     {
         heap_capacity = capacity;
-        heap = new int[heap_capacity];
+        heap = new int[capacity];
         size = 0;
     }
     int parent(int i)
@@ -30,14 +30,18 @@ public:
     }
     void insert(int val)
     {
+        if (size == heap_capacity)
+        {
+            return;
+        }
         size++;
         int i = size - 1;
         heap[i] = val;
-        while (i != 0 && heap[parent(i)] > heap[i])
+        while (i != 0 && heap[i] > heap[parent(i)])
         {
-            int temp = heap[parent(i)];
-            heap[parent(i)] = heap[i];
-            heap[i] = temp;
+            int temp = heap[i];
+            heap[i] = heap[parent(i)];
+            heap[parent(i)] = temp;
             i = parent(i);
         }
     }
@@ -45,21 +49,21 @@ public:
     {
         int l = left(i);
         int r = right(i);
-        int small = i;
-        if (l < heap_capacity && heap[l] < heap[i])
+        int large = i;
+        if (l < heap_capacity && heap[l] > heap[i])
         {
-            small = l;
+            large = i;
         }
-        if (r < heap_capacity && heap[r] < heap[small])
+        if (r < heap_capacity && heap[r] > heap[large])
         {
-            small = r;
+            large = r;
         }
-        if (small != i)
+        if (large != i)
         {
             int temp = heap[i];
-            heap[i] = heap[small];
-            heap[small] = temp;
-            heapify(small);
+            heap[i] = heap[large];
+            heap[large] = temp;
+            heapify(large);
         }
     }
 };
