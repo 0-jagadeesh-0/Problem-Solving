@@ -10,22 +10,11 @@ void dfs(vector<int> graph[], vector<bool> &visit)
     {
         if (!visit[i])
         {
-            queue<int> q;
             visit[i] = true;
-            q.push(i);
-            while (!q.empty())
+            for (auto j : graph[i])
             {
-                int k = q.front();
-                cout << k << " ";
-                q.pop();
-                for (auto j : graph[k])
-                {
-                    if (!visit[j])
-                    {
-                        visit[j] = true;
-                        q.push(j);
-                    }
-                }
+                cout << j << " ";
+                dfs(graph, visit);
             }
         }
     }
