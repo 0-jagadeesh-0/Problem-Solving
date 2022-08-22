@@ -5,7 +5,6 @@ using namespace std;
 void bfs(vector<int> graph[], vector<bool> &visit)
 {
     int n = graph->size();
-
     for (int i = 0; i < n; i++)
     {
         if (!visit[i])

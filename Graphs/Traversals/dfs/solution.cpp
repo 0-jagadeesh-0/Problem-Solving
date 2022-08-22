@@ -2,20 +2,15 @@
 
 using namespace std;
 
-void dfs(vector<int> graph[], vector<bool> &visit)
+void dfs(int i, vector<int> graph[], vector<bool> &visit)
 {
-    int n = graph->size();
-
-    for (int i = 0; i < n; i++)
+    visit[i] = true;
+    cout << i << " ";
+    for (auto j : graph[i])
     {
-        if (!visit[i])
+        if (!visit[j])
         {
-            visit[i] = true;
-            for (auto j : graph[i])
-            {
-                cout << j << " ";
-                dfs(graph, visit);
-            }
+            dfs(j, graph, visit);
         }
     }
 }
@@ -37,7 +32,13 @@ int main()
     addEdge(graph, 2, 4);
     addEdge(graph, 4, 5);
     vector<bool> visit(n, false);
-    dfs(graph, visit);
+    for (int i = 0; i < n; i++)
+    {
+        if (!visit[i])
+        {
+            dfs(i, graph, visit);
+        }
+    }
 
     return 0;
 }
